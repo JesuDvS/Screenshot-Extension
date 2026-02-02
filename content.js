@@ -3,11 +3,9 @@ document.addEventListener('mouseup', () => {
   const selectedText = window.getSelection().toString().trim();
   
   if (selectedText.length > 0) {
-    // Enviar el texto seleccionado al background script
-    chrome.runtime.sendMessage({
-      type: 'TEXT_SELECTED',
-      text: selectedText
-    });
+    // Guardar en storage para que el side panel lo lea
+    chrome.storage.local.set({ selectedText: selectedText });
+    console.log('Texto seleccionado:', selectedText);
   }
 });
 
@@ -18,10 +16,8 @@ document.addEventListener('keyup', (e) => {
     const selectedText = window.getSelection().toString().trim();
     
     if (selectedText.length > 0) {
-      chrome.runtime.sendMessage({
-        type: 'TEXT_SELECTED',
-        text: selectedText
-      });
+      chrome.storage.local.set({ selectedText: selectedText });
+      console.log('Texto seleccionado:', selectedText);
     }
   }
 });

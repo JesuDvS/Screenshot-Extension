@@ -24,11 +24,3 @@ chrome.action.onClicked.addListener(async (tab) => {
     }
   }
 });
-
-// Escuchar mensajes del content script
-chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-  if (message.type === 'TEXT_SELECTED') {
-    // Reenviar el mensaje al side panel
-    chrome.runtime.sendMessage(message);
-  }
-});
