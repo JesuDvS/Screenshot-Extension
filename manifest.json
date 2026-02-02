@@ -1,0 +1,10 @@
+{
+  "name": "Simple T",
+  "description": "A extension",
+  "version": "1.0",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": "simpleT.png"
+  }
+}
