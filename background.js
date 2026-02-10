@@ -1,26 +1,15 @@
-// Controla la apertura/cierre del side panel al hacer clic en el icono
-let isPanelOpen = false;
+// Background service worker para la extensión de captura de pantalla
 
-chrome.action.onClicked.addListener(async (tab) => {
-  if (!isPanelOpen) {
-    // Abrir el panel
-    await chrome.sidePanel.open({ windowId: tab.windowId });
-    isPanelOpen = true;
-  } else {
-    // Cerrar el panel (solo en Chrome 116+)
-    // En versiones anteriores, el usuario debe cerrar manualmente
-    try {
-      await chrome.sidePanel.setOptions({
-        enabled: false,
-        windowId: tab.windowId
-      });
-      await chrome.sidePanel.setOptions({
-        enabled: true,
-        windowId: tab.windowId
-      });
-      isPanelOpen = false;
-    } catch (e) {
-      console.log('Panel toggle not supported, user must close manually');
-    }
+// Listener para cuando se instala la extensión
+chrome.runtime.onInstalled.addListener(() => {
+  console.log('Extensión de captura de pantalla instalada');
+});
+
+// Listener para mensajes desde el popup
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+  if (request.action === 'capture') {
+    // Esta funcionalidad se maneja directamente desde el popup
+    sendResponse({ success: true });
   }
+  return true;
 });

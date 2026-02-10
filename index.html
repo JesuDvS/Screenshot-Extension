@@ -4,41 +4,113 @@
   <meta charset="UTF-8">
   <style>
     body {
-      width: 100%;
-      min-height: 100vh;
+      width: 400px;
       margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+      background-color: #1e1e1e;
+      color: #fff;
+    }
+    
+    .container {
       padding: 20px;
-      font-family: Arial, sans-serif;
-      background-color: #f5f5f5;
     }
-    h1 {
-      color: #333;
-      font-size: 24px;
-      margin-bottom: 20px;
-    }
-    #selectedText {
-      background-color: white;
-      border: 2px solid #4285f4;
+    
+    .button-capture {
+      width: 100%;
+      background-color: #7c5cdb;
+      color: white;
+      border: none;
       border-radius: 8px;
       padding: 15px;
-      min-height: 100px;
       font-size: 16px;
-      line-height: 1.5;
-      color: #333;
-      white-space: pre-wrap;
-      word-wrap: break-word;
+      font-weight: 600;
+      cursor: pointer;
+      margin-bottom: 20px;
+      transition: background-color 0.2s;
     }
-    .placeholder {
-      color: #999;
-      font-style: italic;
+    
+    .button-capture:hover {
+      background-color: #6a4bc4;
+    }
+    
+    .button-capture:active {
+      background-color: #5a3bb0;
+    }
+    
+    .input-group {
+      margin-bottom: 15px;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 14px;
+      color: #ccc;
+    }
+    
+    input[type="text"] {
+      width: 100%;
+      background-color: #2d2d2d;
+      border: 1px solid #3d3d3d;
+      border-radius: 6px;
+      padding: 10px;
+      color: #fff;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+    
+    input[type="text"]:focus {
+      outline: none;
+      border-color: #7c5cdb;
+    }
+    
+    .log-container {
+      background-color: #0d0d0d;
+      border-radius: 8px;
+      padding: 15px;
+      max-height: 200px;
+      overflow-y: auto;
+      font-family: 'Consolas', 'Monaco', monospace;
+      font-size: 12px;
+    }
+    
+    .log-entry {
+      margin: 5px 0;
+      line-height: 1.4;
+    }
+    
+    .log-time {
+      color: #888;
+    }
+    
+    .log-success {
+      color: #4ade80;
+    }
+    
+    .log-error {
+      color: #f87171;
+    }
+    
+    .log-info {
+      color: #60a5fa;
     }
   </style>
 </head>
 <body>
-  <h1>Texto Seleccionado</h1>
-  <div id="selectedText" class="placeholder">
-    Selecciona cualquier texto en la página web para verlo aquí...
+  <div class="container">
+    <button class="button-capture" id="captureBtn">Tomar Captura de Pantalla</button>
+    
+    <div class="input-group">
+      <label for="filename">Nombre del archivo:</label>
+      <input type="text" id="filename" value="workspace" placeholder="Ingrese el nombre del archivo">
+    </div>
+    
+    <div class="log-container" id="logContainer">
+      <div class="log-entry log-time">12:36:09 AM: Iniciando proceso de captura...</div>
+    </div>
   </div>
+  
   <script src="popup.js"></script>
 </body>
 </html>

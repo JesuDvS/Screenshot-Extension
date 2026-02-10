@@ -1,5 +1,5 @@
 {
-  "name": "Simple T",
+  "name": "Screenshot-Extension",
   "description": "A extension",
   "version": "1.0",
   "manifest_version": 3,
@@ -10,18 +10,12 @@
     "storage"
   ],
   "action": {
-    "default_icon": "simpleT.png"
+    "default_icon": "Screenshot-Extension2.png"
   },
   "side_panel": {
     "default_path": "index.html"
   },
   "background": {
     "service_worker": "background.js"
-  },
-  "content_scripts": [
-    {
-      "matches": ["<all_urls>"],
-      "js": ["content.js"]
-    }
-  ]
+  }
 }

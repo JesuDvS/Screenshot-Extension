@@ -1,3 +1,4 @@
 *.png 
 *.json 
 !manifest.json
+*.zip
