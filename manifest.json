@@ -3,6 +3,11 @@
   "description": "A extension",
   "version": "1.0",
   "manifest_version": 3,
+  "icons": {
+    "16": "Screenshot-Extension2.png",
+    "48": "Screenshot-Extension2.png",
+    "128": "Screenshot-Extension2.png"
+  },
   "permissions": [
     "activeTab",
     "scripting",
